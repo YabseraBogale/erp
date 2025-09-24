@@ -23,6 +23,8 @@ func main() {
 		log.Println(err)
 	}
 
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
 	http.HandleFunc("/employee_registeration", func(w http.ResponseWriter, r *http.Request) {
 		templ, err := template.ParseFiles("public/employee_registeration.html")
 		if err != nil {

@@ -29,7 +29,7 @@ go.work.sum
 
 # Editor/IDE
 # .idea/
-# .vscode/
+.vscode/
 
 # database
 database.db
@@ -37,3 +37,5 @@ database.db
 # upload folder
 
 upload/
+
+.erp.session.sql
