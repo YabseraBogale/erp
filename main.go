@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"log"
 	"net/http"
 
@@ -23,28 +24,63 @@ func main() {
 	}
 
 	http.HandleFunc("/employee_registeration", func(w http.ResponseWriter, r *http.Request) {
+		templ, err := template.ParseFiles("public/employee_registeration.html")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 		if r.Method == "post" {
 
 		}
 
+		templ.Execute(w, nil)
 	})
 
 	http.HandleFunc("/item_registeration", func(w http.ResponseWriter, r *http.Request) {
+		templ, err := template.ParseFiles("public/item_registeration.html")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 		if r.Method == "post" {
 
 		}
+
+		templ.Execute(w, nil)
 	})
 
 	http.HandleFunc("/checkin", func(w http.ResponseWriter, r *http.Request) {
+		templ, err := template.ParseFiles("public/checkin.html")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 		if r.Method == "post" {
 
 		}
+
+		templ.Execute(w, nil)
 	})
 
 	http.HandleFunc("/checkout", func(w http.ResponseWriter, r *http.Request) {
+		templ, err := template.ParseFiles("public/checkout.html")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 		if r.Method == "post" {
 
 		}
+
+		templ.Execute(w, nil)
+	})
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		templ, err := template.ParseFiles("public/dashboard.html")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		if r.Method == "post" {
+
+		}
+
+		templ.Execute(w, nil)
 	})
 
 	err = http.ListenAndServe("localhost:8080", nil)
