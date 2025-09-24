@@ -80,7 +80,7 @@ type CheckOut struct {
 	CheckOutId   int `gorm:"primaryKey"`
 	ItemId       int `gorm:"foreignKey"`
 	EmployeeId   int `gorm:"foreignKey"`
-	ItemSiv int
+	ItemSiv      int
 	CheckOutDate time.Time
 	Notes        string
 }
@@ -90,8 +90,8 @@ type CheckIn struct {
 	CheckInId  int `gorm:"primaryKey"`
 	ItemId     int `gorm:"foreignKey"`
 	EmployeeId int `gorm:"foreignKey"`
-	ItemPrice int
-	ItemGrr int
+	ItemPrice  int
+	ItemGrr    int
 	ReturnDate time.Time
 	Notes      string
 }
