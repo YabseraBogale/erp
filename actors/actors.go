@@ -39,6 +39,8 @@ type Employee struct {
 	DateOfEmployement       time.Time
 }
 
+// type transaction "add","remove","checkout","checkin"
+
 type Item struct {
 	gorm.Model
 	ItemId              int `gorm:"primaryKey"`
@@ -56,42 +58,25 @@ type Item struct {
 	CreatedByEmployeeId int `gorm:"foreignKey"`
 }
 
-type TransactionType struct {
-	// type "add","remove","checkout","checkin"
-	gorm.Model
-	TransactionTypeId int
-	TypeName          string
-}
-
-type ItemLog struct {
-	gorm.Model
-	LogId           int    `gorm:"primaryKey"`
-	ItemId          int    `gorm:"foreignKey"`
-	TransactionName string `gorm:"foreignKey"`
-	EmployeeId      int    `gorm:"foreignKey"`
-	QuantityChanged int
-	ItemPrice       float32
-	TransactionDate time.Time
-	Description     string
-}
-
 type CheckOut struct {
 	gorm.Model
-	CheckOutId   int `gorm:"primaryKey"`
-	ItemId       int `gorm:"foreignKey"`
-	EmployeeId   int `gorm:"foreignKey"`
-	ItemSiv      int
-	CheckOutDate time.Time
-	Notes        string
+	CheckOutId          int `gorm:"primaryKey"`
+	ItemId              int `gorm:"foreignKey"`
+	InventoryEmployeeId int
+	CheckOutEmployeeId  int
+	ItemSiv             int
+	CheckOutDate        time.Time
+	Notes               string
 }
 
 type CheckIn struct {
 	gorm.Model
-	CheckInId  int `gorm:"primaryKey"`
-	ItemId     int `gorm:"foreignKey"`
-	EmployeeId int `gorm:"foreignKey"`
-	ItemPrice  int
-	ItemGrr    int
-	ReturnDate time.Time
-	Notes      string
+	CheckInId           int `gorm:"primaryKey"`
+	ItemId              int `gorm:"foreignKey"`
+	InventoryEmployeeId int
+	CheckInEmployeeId   int
+	ItemPrice           int
+	ItemGrr             int
+	ReturnDate          time.Time
+	Notes               string
 }
