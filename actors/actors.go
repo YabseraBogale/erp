@@ -47,8 +47,8 @@ type Item struct {
 	EmployeeId          int `gorm:"foreignKey"`
 	ItemName            string
 	ItemDescription     string
-	ItemPrice           string
-	ItemQuantity        string
+	ItemPrice           float32
+	ItemQuantity        int
 	Categories          string
 	SubCategories       string
 	Location            string
@@ -64,6 +64,7 @@ type CheckOut struct {
 	ItemId              int `gorm:"foreignKey"`
 	InventoryEmployeeId int
 	CheckOutEmployeeId  int
+	ItemQuantity        int
 	ItemSiv             int
 	CheckOutDate        time.Time
 	Notes               string
@@ -75,6 +76,7 @@ type CheckIn struct {
 	ItemId              int `gorm:"foreignKey"`
 	InventoryEmployeeId int
 	CheckInEmployeeId   int
+	ItemQuantity        int
 	ItemPrice           int
 	ItemGrr             int
 	ReturnDate          time.Time
