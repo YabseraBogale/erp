@@ -37,6 +37,7 @@ type Employee struct {
 	Gender                  string
 	JobDescription          string
 	DateOfEmployement       time.Time
+	Password                string
 }
 
 // type transaction "add","remove","checkout","checkin"
