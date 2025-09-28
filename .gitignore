@@ -38,4 +38,6 @@ database.db
 
 upload/
 
-.erp.session.sql
+erp.session.sql
+
+./main
